@@ -192,9 +192,9 @@ function [acc] = kfolds(M, y, centroids, k)
 			end
 		end
         //Pode descomentar abaixo para ver os acertos de cada parte
-		disp("para 1:")
+		disp("para 0:")
 		disp(right_pred1/sum_pred1)
-		disp("para 2:")
+		disp("para 1:")
 		disp(right_pred2/sum_pred2)
 		//disp(cluster)
         soma = soma + right
@@ -242,7 +242,7 @@ y = M(:,length(M(1,:)))
 M = M(:,1:length(M(1,:))-  1)
 //disp(y)
 
-//A ordem da matriz de dados é sempre atualizada. Eu podia ter guardado os que eu consegui melhor resultado, mas como n posso mandar arquivo csv e se eu colocasse para receber um valor aqui ficaria muito poluído, optei por deixar aleatório mesmo.Se rodar múltiplas vezes, seram obtidos resultados diferentes. O máximo que eu vi foi 93% e o mínimo, 83%
+//A ordem da matriz de dados é sempre atualizada. Eu podia ter guardado os que eu consegui melhor resultado, mas como n posso mandar arquivo csv e se eu colocasse para receber um valor aqui ficaria muito poluído, optei por deixar aleatório mesmo.Se rodar múltiplas vezes, seram obtidos resultados diferentes. O máximo que eu vi foi 94% e o mínimo, 92%
 new_order = grand(1, "prm", 1:length(M(:,1)))
 
 M = M(new_order,:)
@@ -250,7 +250,7 @@ y = y(new_order)
 K = 150
 
 //Como a matriz é muito grande, é interessante rodar o script com o k-means UMA única vez. Depois disso comentar essa função abaixo e somente rodar o resto. Na primeira vez que roda, demora um pouco mesmo...
-[cluster, centroids] = k_means(K,50,M)
+//[cluster, centroids] = k_means(K,50,M)
 
 acc = kfolds(M, y, centroids, 5)
 str_acc = "a porcentagem de acerto é: "+string(acc*100)+"%"
