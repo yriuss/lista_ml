@@ -259,7 +259,7 @@ M = csvRead("wine.csv")
 y = M(2:$,1)
 M = M(2:$,2:$)
 
-//A ordem da matriz de dados é sempre atualizada. Eu podia ter guardado os que eu consegui melhor resultado, mas como n posso mandar arquivo csv e se eu colocasse para receber um valor aqui ficaria muito poluído, optei por deixar aleatório mesmo.Se rodar múltiplas vezes, seram obtidos resultados diferentes. O máximo que eu vi foi 94% e o mínimo, 92%
+//A ordem da matriz de dados é sempre atualizada. Eu podia ter guardado os que eu consegui melhor resultado, mas como n posso mandar arquivo csv e se eu colocasse para receber um valor aqui ficaria muito poluído, optei por deixar aleatório mesmo.Se rodar múltiplas vezes, serão obtidos resultados diferentes. O máximo que eu vi foi 94% e o mínimo, 92%
 new_order = grand(1, "prm", 1:length(M(:,1)))
 
 M = M(new_order,:)
